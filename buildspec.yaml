@@ -1,5 +1,8 @@
-version: 0.2phases:
-  install:
+
+    version: 0.2
+
+phases:
+   install:
     runtime-versions:
       nodejs: 12
     commands:
@@ -16,10 +19,12 @@ version: 0.2phases:
     post_build:
       commands:
         - echo Build completed on `date`  
+
 artifacts:
-  type: zip
   files:
-    - package.json
-    - package-lock.json
-    - "build/**/*"
-    - .ebextensions/**/*
+    - '**/*.html'
+    - '**/*.js'
+    - '**/*.css'
+    - '**/*.ico'
+  discard-paths: yes
+  base-directory: 'dist/pipeline-march'
