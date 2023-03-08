@@ -5,7 +5,7 @@ env:
 phases:
   install:
     runtime-versions:
-      nodejs: 14.7.8
+      nodejs: 12.13.0
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
