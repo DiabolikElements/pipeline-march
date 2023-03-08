@@ -1,7 +1,6 @@
+
 {
-    "Version": "2012-10-17",
-    "runtime-versions":
-      nodejs: 16,
+    "Version": "2.0",
     "Statement": [
         {
             "Sid": "PublicReadGetObject",
