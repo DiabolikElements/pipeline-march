@@ -1,6 +1,6 @@
 {
     "Version": "2012-10-17",
-    runtime-versions:
+    "runtime-versions":
       nodejs: 16,
     "Statement": [
         {
