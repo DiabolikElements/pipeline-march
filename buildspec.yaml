@@ -1,21 +1,26 @@
 version: 0.2
-
+env:
+  variables:
+    S3_BUCKET: "pipeline-march"
 phases:
   install:
     runtime-versions:
-      nodejs: 16.x
-    commands:
-      - npm install -g @angular/cli@9.0.6
+      nodejs: 16
   pre_build:
     commands:
-      - npm install
+      - echo Installing source NPM dependencies...
+      - npm install --legacy-peer-deps
+      - npm install -g @angular/cli
   build:
     commands:
-      - ng build
-    finally:
-      - echo final block echo
-
+      - echo Build started on 'date'
+      - ng build --configuration production --aot
+  post_build:
+     commands:
+      - aws s3 cp dist s3://${pipeline-march} --recursive
+      - echo Build completed on `date`
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'dist'
+      - '**/*'
+  base-directory: 'dist*'
+  discard-paths: yes
