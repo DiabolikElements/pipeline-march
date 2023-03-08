@@ -16,6 +16,6 @@ phases:
       - echo final block echo
 
 artifacts:
-  base-directory: dist/pipeline-march
   files:
     - '**/*'
+  base-directory: 'dist'
