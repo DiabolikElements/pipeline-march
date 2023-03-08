@@ -1,18 +1,21 @@
+version: 0.2
 
-{
-    "Version": "2.0",
-    "Statement": [
-        {
-            "runtime-version": "2.0",
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::march-pipe/*"
-            ]
-        }
-    ]
-}
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - npm install -g @angular/cli@9.0.6
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - ng build --prod
+    finally:
+      - echo final block echo
+
+artifacts:
+  base-directory: dist/pipeline-march
+  files:
+    - '**/*'
