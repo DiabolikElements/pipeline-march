@@ -3,6 +3,7 @@
     "Version": "2.0",
     "Statement": [
         {
+            "runtime-version": "2.0",
             "Sid": "PublicReadGetObject",
             "Effect": "Allow",
             "Principal": "*",
