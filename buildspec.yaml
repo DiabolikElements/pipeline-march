@@ -1,6 +1,5 @@
 
     version: 0.2
-
 phases:
    install:
     runtime-versions:
@@ -21,10 +20,7 @@ phases:
         - echo Build completed on `date`  
 
 artifacts:
-  files:
-    - '**/*.html'
-    - '**/*.js'
-    - '**/*.css'
-    - '**/*.ico'
+  files: "**/*"
   discard-paths: yes
   base-directory: 'dist/pipeline-march'
+ 
