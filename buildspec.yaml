@@ -28,7 +28,7 @@ post_build:
 artifacts:
     files:
         - buildspec.yaml
-        - target/package.json
+        - build/*
     discard-paths: yes
     base-directory: 'dist/pipeline-march'
 paths:
