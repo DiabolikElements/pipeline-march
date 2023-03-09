@@ -27,7 +27,8 @@ post_build:
             - echo Build completed on `date`
 artifacts:
     files:
-        - 'pipeline-march'
+        - buildspec.yaml
+        - target/package.json
     discard-paths: yes
     base-directory: 'dist/pipeline-march'
 paths:
