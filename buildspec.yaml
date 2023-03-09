@@ -29,7 +29,8 @@ artifacts:
     files:
         - '/'
     discard-paths: yes
-    base-directory: 'dist/pipeline-march'
+    base-directory: 'dist*'
+    directory: 'dist/pipeline-march'
 paths:
     - node_modules/
 
