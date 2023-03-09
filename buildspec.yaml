@@ -7,13 +7,12 @@ phases:
     runtime-versions:
       nodejs: 14
   pre_build:
-     - build ng build
-     - watch ng build --watch --configuration development
+     - ng build
+     - ng build --watch --configuration development
   build:
     commands:
-     - build ng build
-     - watch ng build --watch --configuration development
-     - test ng test
+     - ng build --watch --configuration development
+     - ng test
      - npm install && ng build
   post_build:
      commands:
