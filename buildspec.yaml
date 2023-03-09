@@ -13,7 +13,7 @@ phases:
      - npm install && ng build
   post_build:
      commands:
-      - aws s3 cp s3://${pipeline-march}
+      - aws s3 cp s3://pipeline-march
 artifacts:
   files:
       - '**/*'
