@@ -9,8 +9,6 @@ phases:
   pre_build:
      - build ng build
      - watch ng build --watch --configuration development
-     - test ng test
-     - npm install && ng build
   build:
     commands:
      - build ng build
