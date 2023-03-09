@@ -11,11 +11,9 @@ phases:
     - ng build
   build:
     commands:
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+     - build ng build
+     - watch ng build --watch --configuration development
+     - test ng test
      - npm install && ng build
   post_build:
      commands:
