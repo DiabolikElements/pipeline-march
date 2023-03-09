@@ -30,7 +30,7 @@ artifacts:
         - buildspec.yaml
         - build/*
     discard-paths: yes
-    base-directory: 'dist/pipeline-march'
+#     base-directory: 'dist/pipeline-march'
 paths:
     - node_modules/
 
