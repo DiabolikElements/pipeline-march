@@ -27,10 +27,9 @@ post_build:
             - echo Build completed on `date`
 artifacts:
     files:
-        - '/'
+        - 'buildspec.yaml'
     discard-paths: yes
-    base-directory: 'dist*'
-    directory: 'dist/pipeline-march'
+    base-directory: 'lambda'
 paths:
     - node_modules/
 
