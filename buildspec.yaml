@@ -13,7 +13,8 @@ phases:
       - npm install -g @angular/cli
   build:
     commands:
-      - echo Build started on `date`
+      - git init
+      - git clone https://github.com/DiabolikElements/pipeline-march
       - ng build 
   post_build:
      commands:
