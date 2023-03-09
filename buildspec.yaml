@@ -6,9 +6,9 @@ phases:
   install:
     runtime-versions:
       nodejs: 14
-  pre_build:
-    commands:
-    - ng build
+#   pre_build:
+#     commands:
+#     - ng build
   build:
     commands:
      - build ng build
