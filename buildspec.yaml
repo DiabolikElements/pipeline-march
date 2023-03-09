@@ -5,7 +5,7 @@ env:
         S3_BUCKET: "pipeline-march"
 install:
     runtime-versions:
-        nodejs: 10
+        nodejs: 14
     commands:
     - npm install -y npm@latest
     - npm install -g @angular/cli
@@ -27,9 +27,9 @@ post_build:
             - echo Build completed on `date`
 artifacts:
     files:
-        - 'buildspec.yaml'
+        - 'package.json'
     discard-paths: yes
-    base-directory: 'Lambda'
+    base-directory: 'dist/pipeline-march'
 paths:
     - node_modules/
 
