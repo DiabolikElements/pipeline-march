@@ -8,13 +8,18 @@ phases:
       nodejs: 14
   pre_build:
     commands:
-    - npm build
+    - ng build
   build:
     commands:
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
      - npm install && ng build
   post_build:
      commands:
-      - aws s3 cp . s3://pipeline-march
+      - aws s3 cp s3://pipeline-march
 artifacts:
   files:
       - '**/*'
