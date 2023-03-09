@@ -11,6 +11,8 @@ phases:
       - echo Installing source NPM dependencies...
       - npm install --legacy-peer-deps
       - npm install -g @angular/cli@latest
+      - npm install -g nodejs
+      - npm install -g node@14.20.0
   build:
     commands:
       - git init
