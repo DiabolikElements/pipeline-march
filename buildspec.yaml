@@ -29,7 +29,7 @@ artifacts:
     files:
         - 'buildspec.yaml'
     discard-paths: yes
-    base-directory: 'dist*'
+    base-directory: 'Lambda'
 paths:
     - node_modules/
 
