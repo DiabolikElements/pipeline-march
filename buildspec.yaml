@@ -1,21 +1,23 @@
 version: 0.2
+
 env:
-  variables:
-    S3_BUCKET: "pipeline-march"
+    variables:
+        CACHE_CONTROL: "86400"
+        BUILD_FOLDER: "dist/pipeline-march"
 phases:
   install:
     runtime-versions:
-      nodejs: 14
-  pre_build:
-     - ng build
+        nodejs: 14
+    commands:
+        - echo Installing source NPM dependencies...
+        - npm install
+        - npm install -g @angular/cli
   build:
     commands:
-     - npm install && ng build
-  post_build:
-     commands:
-      - aws s3 cp s3://pipeline-march
+        - echo Build started 
+        - ng build
 artifacts:
-  files:
-      - '**/*'
-  base-directory: 'dist/pipeline-march'
-  discard-paths: yes
+    files:
+        - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes
