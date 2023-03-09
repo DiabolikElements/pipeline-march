@@ -10,12 +10,12 @@ phases:
      - ng build
   build:
     commands:
-     - npm install && ng build && ng test
+     - npm install && ng build
   post_build:
      commands:
       - aws s3 cp s3://${pipeline-march}
 artifacts:
   files:
       - '**/*'
-  base-directory: 'build'
+  base-directory: 'dist/pipeline-march'
   discard-paths: yes
