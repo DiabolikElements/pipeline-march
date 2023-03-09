@@ -18,7 +18,7 @@ phases:
       - ng build 
   post_build:
      commands:
-      - aws s3 cp dist s3: "pipeline-march"
+      - aws s3 cp . s3://pipeline-march  – recursive
 artifacts:
   files:
       - '**/*'
