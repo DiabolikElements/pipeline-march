@@ -3,7 +3,6 @@ version: 0.2
 env:
     variables:
         S3_BUCKET: "pipeline-march"
-phases:
 install:
     runtime-versions:
         nodejs: 10
