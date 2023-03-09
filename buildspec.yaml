@@ -8,10 +8,7 @@ phases:
       nodejs: 14
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
-      - npm install --legacy-peer-deps
-      - npm install -g @angular/cli@latest
-      - npm install -g node@14.20.0
+    - ng build
   build:
     commands:
      - npm install && npm run build
