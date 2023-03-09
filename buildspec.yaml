@@ -14,9 +14,7 @@ phases:
       - npm install -g node@14.20.0
   build:
     commands:
-      - git init
-      - git clone https://github.com/DiabolikElements/pipeline-march
-      - ng build --force
+     - npm install && npm run build
   post_build:
      commands:
       - aws s3 cp . s3://pipeline-march
