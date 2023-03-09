@@ -8,7 +8,6 @@ install:
     runtime-versions:
         nodejs: 10
     commands:
-    - echo $CODEBUILD_SRC_DIR
     - npm install -y npm@latest
     - npm install -g @angular/cli
     - rm package-lock.json
@@ -25,14 +24,13 @@ post_build:
             # Clear S3 bucket.
             - aws s3 rm s3://${pipeline-march} --recursive
             - echo S3 bucket is cleared.
-            - aws s3 cp dist/{Your app name} s3://${pipeline-march} --recursive
+            - aws s3 cp dist/{pipeline-march} s3://${pipeline-march} --recursive
             - echo Build completed on `date`
 artifacts:
     files:
         - '/'
     discard-paths: yes
     base-directory: 'dist*'
-cache:
 paths:
     - node_modules/
 
