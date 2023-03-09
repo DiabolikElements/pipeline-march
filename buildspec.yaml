@@ -2,22 +2,37 @@ version: 0.2
 
 env:
     variables:
-        CACHE_CONTROL: "86400"
-        BUILD_FOLDER: "dist/pipeline-march"
+        S3_BUCKET: "pipeline-march"
 phases:
-  install:
+install:
     runtime-versions:
-        nodejs: 14
+        nodejs: 10
     commands:
-        - echo Installing source NPM dependencies...
-        - npm install
-        - npm install -g @angular/cli
-  build:
+    - echo $CODEBUILD_SRC_DIR
+    - npm install -y npm@latest
+    - npm install -g @angular/cli
+    - rm package-lock.json
+pre_build:
     commands:
-        - echo Build started 
-        - ng build --watch --configuration development
+    - npm install
+build:
+    commands:
+    - echo build started on `date`
+    - ng build
+    - ls -l -F
+post_build:
+    commands:
+            # Clear S3 bucket.
+            - aws s3 rm s3://${pipeline-march} --recursive
+            - echo S3 bucket is cleared.
+            - aws s3 cp dist/{Your app name} s3://${pipeline-march} --recursive
+            - echo Build completed on `date`
 artifacts:
     files:
-        - '**/*'
-    base-directory: 'dist*'
+        - '/'
     discard-paths: yes
+    base-directory: 'dist*'
+cache:
+paths:
+    - node_modules/
+
